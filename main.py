@@ -26,6 +26,10 @@ while not game_is_over:
     screen.update()
     ball.move()
 
+    #Detect collision with wall.
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
+
 
 
 
