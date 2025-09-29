@@ -1,4 +1,4 @@
-from turtle import Screen
+from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
 import time
@@ -21,6 +21,8 @@ screen.onkey(l_paddle.down, "s")
 
 
 game_is_over = False
+
+
 while not game_is_over:
     time.sleep(0.1)
     screen.update()
@@ -34,6 +36,13 @@ while not game_is_over:
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
+    #Detect ball out of bounds r_paddle
+    if ball.xcor() > 380:
+        ball.reset_position()
+
+    # Detect ball out of bounds l_paddle
+    if ball.xcor() > -380:
+        ball.reset_position()
 
 
 
